@@ -9,7 +9,6 @@ export class TilesContainer extends React.Component {
 		this.state = {
 			cols: 0,
 			rows: 0,
-			litEhStateArr: props.litEhStateArr,
 			clicks: 0,
 			stopTimer: false,
 			score: 0,
@@ -17,22 +16,22 @@ export class TilesContainer extends React.Component {
 		};
 	}
 
-	buildStateArr = (cols, rows) => {
-		let builderStateArr = [];
+	// buildStateArr = (cols, rows) => {
+	// 	let builderStateArr = [];
 
-		for (let i = 0; i < rows; i++) {
-			builderStateArr.push([]);
-			for (let j = 0; j < cols; j++) {
-				builderStateArr[i].push(0);
-			}
-		}
+	// 	for (let i = 0; i < rows; i++) {
+	// 		builderStateArr.push([]);
+	// 		for (let j = 0; j < cols; j++) {
+	// 			builderStateArr[i].push(0);
+	// 		}
+	// 	}
 
-		this.setState({
-			cols: cols,
-			rows: rows,
-			litEhStateArr: builderStateArr
-		});
-	};
+	// 	this.setState({
+	// 		cols: cols,
+	// 		rows: rows,
+	// 		litEhStateArr: builderStateArr
+	// 	});
+	// };
 
 	gameComplete = () => {
 		this.props.stopTimer();
@@ -69,7 +68,7 @@ export class TilesContainer extends React.Component {
 		const rowNum = +tileId.split('')[0];
 		const colNum = +tileId.split('')[1];
 
-		const newStateOfTiles = this.state.litEhStateArr;
+		const newStateOfTiles = this.props.litEhStateArr;
 		newStateOfTiles[rowNum][colNum] = !newStateOfTiles[rowNum][colNum];
 		newStateOfTiles[rowNum + 1] &&
 			(newStateOfTiles[rowNum + 1][colNum] = !newStateOfTiles[rowNum + 1][
@@ -98,7 +97,7 @@ export class TilesContainer extends React.Component {
 			};
 		});
 
-		let countLit = this.state.litEhStateArr.flat().filter((x) => x === true)
+		let countLit = this.props.litEhStateArr.flat().filter((x) => x === true)
 			.length;
 
 		if (countLit === 11) {
@@ -109,7 +108,7 @@ export class TilesContainer extends React.Component {
 	componentDidMount() {
 		this._isMounted = true;
 		const { cols, rows } = this.props;
-		this.buildStateArr(cols, rows);
+		// this.buildStateArr(cols, rows);
 	}
 
 	render() {
@@ -130,8 +129,8 @@ export class TilesContainer extends React.Component {
 								key={`${rowNum}${colNum}`}
 								id={`${rowNum}${colNum}`}
 								litEh={
-									this.state.litEhStateArr[rowNum] &&
-									this.state.litEhStateArr[rowNum][colNum]
+									this.props.litEhStateArr[rowNum] &&
+									this.props.litEhStateArr[rowNum][colNum]
 								}
 								toggleLit={this.toggleLit}
 							/>

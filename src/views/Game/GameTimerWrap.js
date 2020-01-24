@@ -52,7 +52,7 @@ export class GameTimerWrap extends Component {
 				time={this.state.time}
 				stopTimer={this.stopTimer}
 				user={this.props.user}
-				playAgain={this.setTimerAgain}
+				resetTimer={this.setTimerAgain}
 			></Game>
 		);
 	}

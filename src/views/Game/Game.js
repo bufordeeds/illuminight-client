@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { TilesContainer } from '../../containers/Tiles';
 import './game.css';
@@ -10,7 +9,6 @@ export class Game extends Component {
 		this.state = {
 			clicks: 0,
 			gameComplete: false,
-			playAgain: false,
 			litEhStateArr: [...Array(5)].map((a) => [...Array(5)].map((n) => 0))
 		};
 	}
@@ -29,12 +27,14 @@ export class Game extends Component {
 
 	playAgain = () => {
 		let allDark = [...Array(5)].map((a) => [...Array(5)].map((n) => 0));
+		console.log(allDark);
 		this.setState({
 			clicks: 0,
-			playAgain: true,
+			gameComplete: false,
 			litEhStateArr: allDark
 		});
-		this.props.playAgain();
+		this.props.resetTimer(); // console.log in Tiles.js what litEhStateArr is
+		// whatever that matches the tiles lit status in app - won't be reset
 	};
 
 	render() {
@@ -47,7 +47,6 @@ export class Game extends Component {
 					incrementClicks={this.incrementClicks}
 					user={this.props.user}
 					gameComplete={this.gameComplete}
-					playAgain={this.state.playAgain}
 					time={this.props.time}
 					litEhStateArr={this.state.litEhStateArr}
 				/>
