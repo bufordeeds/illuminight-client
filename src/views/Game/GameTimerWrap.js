@@ -1,8 +1,9 @@
 import { Game } from './Game';
 import React, { Component } from 'react';
+let startTimer;
 
 export class GameTimerWrap extends Component {
-  _isMounted = false;
+	_isMounted = false;
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -12,31 +13,35 @@ export class GameTimerWrap extends Component {
 	}
 
 	setTimer = () => {
-		let startTimer = setInterval(() => {
-			if (this.state.stopTimer === true) {
-				clearInterval(startTimer);
-			}
+		startTimer = setInterval(() => {
 			this.setState((previousState) => {
-
-        
+				// console.log(this.state.time);
 				return { time: previousState.time + 1 };
 			});
-
 		}, 1000);
+	};
 
+	clearTimer = () => {
+		clearInterval(startTimer);
 	};
 
 	stopTimer = () => {
+		this.clearTimer();
+	};
 
-    
-		this.setState({ stopTimer: true });
+	setTimerAgain = () => {
+		this.clearTimer();
+		this.setState({ time: 0 });
+		this.setTimer();
 	};
 
 	componentDidMount() {
-    this._isMounted = true;
-
-    
+		this._isMounted = true;
 		this.setTimer();
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.interval);
 	}
 
 	render() {
@@ -45,8 +50,9 @@ export class GameTimerWrap extends Component {
 				rows={this.props.rows}
 				cols={this.props.cols}
 				time={this.state.time}
-        stopTimer={this.stopTimer}
-        user={this.props.user}
+				stopTimer={this.stopTimer}
+				user={this.props.user}
+				playAgain={this.setTimerAgain}
 			></Game>
 		);
 	}

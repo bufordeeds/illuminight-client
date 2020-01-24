@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 import { TilesContainer } from '../../containers/Tiles';
 import './game.css';
 
@@ -6,18 +8,33 @@ export class Game extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			clicks: 0
+			clicks: 0,
+			gameComplete: false,
+			playAgain: false,
+			litEhStateArr: [...Array(5)].map((a) => [...Array(5)].map((n) => 0))
 		};
 	}
 
 	incrementClicks = () => {
 		this.setState((previousState) => {
-
 			return {
 				clicks: previousState.clicks + 1
-      };
-      
+			};
 		});
+	};
+
+	gameComplete = () => {
+		this.setState({ gameComplete: true });
+	};
+
+	playAgain = () => {
+		let allDark = [...Array(5)].map((a) => [...Array(5)].map((n) => 0));
+		this.setState({
+			clicks: 0,
+			playAgain: true,
+			litEhStateArr: allDark
+		});
+		this.props.playAgain();
 	};
 
 	render() {
@@ -26,12 +43,15 @@ export class Game extends Component {
 				<TilesContainer
 					cols={this.props.cols}
 					rows={this.props.rows}
-					clicks={this.state.clicks}
 					stopTimer={this.props.stopTimer}
-          incrementClicks={this.incrementClicks}
-          time={this.props.time}
-          user={this.props.user}
+					incrementClicks={this.incrementClicks}
+					user={this.props.user}
+					gameComplete={this.gameComplete}
+					playAgain={this.state.playAgain}
+					time={this.props.time}
+					litEhStateArr={this.state.litEhStateArr}
 				/>
+				<Button onClick={this.playAgain}>Play Again</Button>
 				<span className={'clicks'}>Clicks: {this.state.clicks} </span>
 				<span className={'timer'}>
 					Timer:
