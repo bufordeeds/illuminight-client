@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import "./styles.css";
 
 const useStyles = makeStyles(theme => ({
@@ -32,38 +31,36 @@ export const Nav = ({ user }) => {
           </Link>
           <div className={"nav__links"}>
             <Link id={"nav__home-link"} className={"nav__link"} to="/">
-              <Button color="inherit">Home</Button>
+              <span color="inherit">Home</span>
             </Link>
             <Link
               id={"nav__leaderboard-link"}
               className={"nav__link"}
               to="/leaderboard"
             >
-              <Button color="inherit">Leaderboard</Button>
+              <span color="inherit">Leaderboard</span>
             </Link>
             {user.id ? (
-              <span
-                id={"nav__signin-link"}
-                className={"nav__link"}
-
-              >
-                <Button color="inherit">Logout</Button>
-              </span>
+              <Link>
+                <span id={"nav__signin-link"} className={"nav__link"}>
+                  <span color="inherit">Logout</span>
+                </span>
+              </Link>
             ) : (
               <Link
                 id={"nav__signin-link"}
                 className={"nav__link"}
                 to="/signup"
               >
-                <Button color="inherit">Sign In / Sign Up</Button>
+                <span color="inherit">Sign In / Sign Up</span>
               </Link>
             )}
             <Link id={"nav__game-link"} className={"nav__link"} to="/game">
-              <Button color="inherit">Start Game</Button>
+              <span color="inherit">Start Game</span>
             </Link>
           </div>
         </Toolbar>
       </AppBar>
     </div>
   );
-}
+};
