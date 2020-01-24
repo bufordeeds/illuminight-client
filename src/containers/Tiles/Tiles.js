@@ -99,7 +99,7 @@ export class TilesContainer extends React.Component {
     let countLit = this.state.litEhStateArr.flat().filter(x => x === true)
       .length;
 
-    if (countLit === 11) {
+    if (countLit === 25) {
       this.gameComplete();
     }
   };
