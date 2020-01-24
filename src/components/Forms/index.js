@@ -11,7 +11,7 @@ export const SignUpForm = ({ errors, handleErrors, handleSubmit }) => (
         placeholder="Name"
       />
       <span className={"error__container"}>
-        {errors + " message goes here"}
+        {/* {errors + " message goes here"} */}
       </span>
       <input
         className="input"
@@ -20,7 +20,7 @@ export const SignUpForm = ({ errors, handleErrors, handleSubmit }) => (
         placeholder="Password"
       />
       <span className={"error__container"}>
-        {errors + " message goes here"}
+        {/* {errors + " message goes here"} */}
       </span>
       <button
         onClick={e => {
