@@ -39,6 +39,7 @@ export class Game extends Component {
 
 	render() {
 		return (
+
 			<div className={'game-container'}>
 				<TilesContainer
 					cols={this.props.cols}
