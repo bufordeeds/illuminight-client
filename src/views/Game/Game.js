@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { TilesContainer } from '../../containers/Tiles';
 import './game.css';
@@ -10,7 +9,6 @@ export class Game extends Component {
 		this.state = {
 			clicks: 0,
 			gameComplete: false,
-			playAgain: false,
 			litEhStateArr: [...Array(5)].map((a) => [...Array(5)].map((n) => 0))
 		};
 	}
@@ -29,41 +27,38 @@ export class Game extends Component {
 
 	playAgain = () => {
 		let allDark = [...Array(5)].map((a) => [...Array(5)].map((n) => 0));
+		console.log(allDark);
 		this.setState({
 			clicks: 0,
-			playAgain: true,
+			gameComplete: false,
 			litEhStateArr: allDark
 		});
-		this.props.playAgain();
+		this.props.resetTimer(); // console.log in Tiles.js what litEhStateArr is
+		// whatever that matches the tiles lit status in app - won't be reset
 	};
 
 	render() {
 		return (
-      <div className={"game-container"}>
-        <div className={"stat-container"}>
-          <div className={'stats'}>
-            <span className={"clicks"}>Clicks: {this.state.clicks} </span>
-            <span className={"timer"}>Timer:{` ${this.props.time} s`}</span>
-          </div>
-          <div className={'button-container'}>
-            <button className={"playAgain"} onClick={this.playAgain}>
-              Play Again
-            </button>
-          </div>
-        </div>
-        <TilesContainer
-          cols={this.props.cols}
-          rows={this.props.rows}
-          stopTimer={this.props.stopTimer}
-          incrementClicks={this.incrementClicks}
-          user={this.props.user}
-          gameComplete={this.gameComplete}
-          playAgain={this.state.playAgain}
-          time={this.props.time}
-          litEhStateArr={this.state.litEhStateArr}
-        />
-      </div>
-    );
+
+			<div className={'game-container'}>
+				<TilesContainer
+					cols={this.props.cols}
+					rows={this.props.rows}
+					stopTimer={this.props.stopTimer}
+					incrementClicks={this.incrementClicks}
+					user={this.props.user}
+					gameComplete={this.gameComplete}
+					time={this.props.time}
+					litEhStateArr={this.state.litEhStateArr}
+				/>
+				<Button onClick={this.playAgain}>Play Again</Button>
+				<span className={'clicks'}>Clicks: {this.state.clicks} </span>
+				<span className={'timer'}>
+					Timer:
+					{` ${this.props.time} s`}
+				</span>
+			</div>
+		);
 	}
 }
 
