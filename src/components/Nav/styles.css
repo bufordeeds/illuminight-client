@@ -7,11 +7,59 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  overflow: hidden;
+}
+
+#nav__logo {
+  color: whitesmoke;
+  font-size: 1.8rem;
+  transition: all 0.3s ease-in-out;
+}
+
+#nav__logo:hover {
+  text-shadow: 0 0 2.4rem rgba(245, 245, 245, 0.8);
+  transition: all 0.3s ease-in-out;
 }
 
 .nav__links {
   justify-content: flex-end;
 }
-.nav__link {
+
+.nav__links .nav__link {
   color: whitesmoke;
+  transition: all 0.3s;
+  padding: 0 0.8rem;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav__links .nav__link span {
+  font-size: 1.4rem;
+}
+
+.nav__links .nav__link::before {
+  background-color: rgb(245, 245, 245);
+  bottom: -24px;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: -24px;
+  transform: translateY(66px);
+  transition: all 0.3s ease-in-out;
+}
+
+.nav__links .nav__link:hover {
+  transition: all 0.3s ease-in-out;
+}
+
+.nav__links .nav__link:hover span {
+  color: rgb(17, 17, 17);
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav__links .nav__link:hover::before {
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
 }
