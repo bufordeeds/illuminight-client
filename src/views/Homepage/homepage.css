@@ -17,3 +17,7 @@ h2 {
 h3 {
   font-size: 2rem ;
 }
+.redText {
+  color: red;
+  font-size: 2rem ;
+}

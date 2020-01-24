@@ -22,10 +22,16 @@ export const Home = ({ user }) => {
         </h2>
 
         <h3>
-          Click the tiles to illuminate them. Once all of the tiles are lit you win the game.
+          Click the tiles to illuminate them. Once all of the tiles are lit you
+          win the game.
         </h3>
-        <h3>Every second that goes by is a point against you.</h3>
-        <h3>And every click is 10 points against you.</h3>
+        <h3>
+          Every second that goes by is <span class="redText">a point</span>{" "}
+          against you.
+        </h3>
+        <h3>
+          And every click is <span class="redText">10 points</span> against you.
+        </h3>
         <h3>Only the fastest and most efficient will top the leaderboard.</h3>
         <h3> Easy enough right?</h3>
 
