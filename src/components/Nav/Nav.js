@@ -53,9 +53,9 @@ export const Nav = ({ user, setUser }) => {
                 <span color="inherit">Sign In / Sign Up</span>
               </Link>
             )}
-            <Link id={"nav__game-link"} className={"nav__link"} to="/game">
+            {/* <Link id={"nav__game-link"} className={"nav__link"} to="/game">
               <span color="inherit">Start Game</span>
-            </Link>
+            </Link> */}
           </div>
         </Toolbar>
       </AppBar>
