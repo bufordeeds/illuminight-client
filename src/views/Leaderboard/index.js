@@ -44,7 +44,7 @@ const columns = [
 		label: 'Score',
 		minWidth: 170,
 		align: 'center',
-		format: (value) => value.toFixed(2)
+		format: (value) => value.toFixed(0)
 	}
 ];
 
