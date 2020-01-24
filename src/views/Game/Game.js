@@ -39,26 +39,31 @@ export class Game extends Component {
 
 	render() {
 		return (
-			<div className={'game-container'}>
-				<TilesContainer
-					cols={this.props.cols}
-					rows={this.props.rows}
-					stopTimer={this.props.stopTimer}
-					incrementClicks={this.incrementClicks}
-					user={this.props.user}
-					gameComplete={this.gameComplete}
-					playAgain={this.state.playAgain}
-					time={this.props.time}
-					litEhStateArr={this.state.litEhStateArr}
-				/>
-				<Button onClick={this.playAgain}>Play Again</Button>
-				<span className={'clicks'}>Clicks: {this.state.clicks} </span>
-				<span className={'timer'}>
-					Timer:
-					{` ${this.props.time} s`}
-				</span>
-			</div>
-		);
+      <div className={"game-container"}>
+        <div className={"stat-container"}>
+          <div className={'stats'}>
+            <span className={"clicks"}>Clicks: {this.state.clicks} </span>
+            <span className={"timer"}>Timer:{` ${this.props.time} s`}</span>
+          </div>
+          <div className={'button-container'}>
+            <button className={"playAgain"} onClick={this.playAgain}>
+              Play Again
+            </button>
+          </div>
+        </div>
+        <TilesContainer
+          cols={this.props.cols}
+          rows={this.props.rows}
+          stopTimer={this.props.stopTimer}
+          incrementClicks={this.incrementClicks}
+          user={this.props.user}
+          gameComplete={this.gameComplete}
+          playAgain={this.state.playAgain}
+          time={this.props.time}
+          litEhStateArr={this.state.litEhStateArr}
+        />
+      </div>
+    );
 	}
 }
 
