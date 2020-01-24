@@ -1,45 +1,3 @@
-// import React, { Component } from 'react';
-
-// //mui
-
-// import './leaderboard.css'
-// import '../../index.css'
-
-// export class Leaderboard extends Component {
-//          state = {
-//            games: []
-//          };
-
-//          fetchGames = () => {
-//            fetch("http://localhost:3000/api/v1/games")
-//              .then(res => res.json())
-//              .then(games => {
-//                console.log(games);
-
-//                this.setState({ games });
-//              });
-//          };
-//          componentDidMount() {
-//            this.fetchGames()
-//          }
-//          render() {
-//            console.log(this.state.games);
-
-//            return (
-//              <div className={'leaderboard__container'}>
-//                <ol>
-//                {this.state.games.map(game => (
-//                    <li key={game.id}>{game.user_id}</li>
-//                    ))}
-//                    </ol>
-//              </div>
-//            );
-//          }
-//        }
-
-// export default Leaderboard;
-
-// ++++++++++++++++++++++++
 import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -50,6 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import './leaderboard.css';
 
 const columns = [
   {
