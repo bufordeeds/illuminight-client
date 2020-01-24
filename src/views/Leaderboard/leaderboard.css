@@ -5,3 +5,53 @@
   justify-content: center;
   width: 100%;
 }
+
+.MuiTableCell-root.MuiTableCell-head.MuiTableCell-alignCenter.MuiTableCell-stickyHeader {
+  background-color: rgb(17, 17, 17);
+  border: none;
+  color: rgb(245, 245, 245);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.MuiTableBody-root {
+  background-color: rgb(27, 27, 27);
+}
+
+.MuiTableBody-root tr td {
+  border-bottom: 1px solid rgba(245, 245, 245, 0.2);
+  color: rgb(245, 245, 245);
+  font-size: 1.4rem;
+}
+
+.MuiTableBody-root tr:nth-of-type(even) {
+  background-color: rgb(30, 30, 30);
+}
+
+.MuiTablePagination-root {
+  background-color: rgb(17, 17, 17);
+}
+
+.MuiTablePagination-root p {
+  color: rgb(245, 245, 245);
+  font-size: 1.4rem;
+}
+
+.MuiIconButton-root.MuiIconButton-colorInherit {
+  color: rgb(245, 245, 245);
+}
+
+.MuiIconButton-root.Mui-disabled {
+  color: rgb(245, 245, 245, 0.2);
+}
+
+.MuiIconButton-root.MuiIconButton-colorInherit span{
+  font-size: 1.8rem;
+}
+
+.MuiSelect-select.MuiSelect-select,
+.MuiSelect-select.MuiSelect-select:focus {
+  background-color: rgb(245, 245, 245);
+}
