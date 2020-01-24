@@ -12,7 +12,7 @@ export const Home = ({ user }) => {
         />
       </div> */}
       <div className={"text-center"}>
-        <h1>{user.id ? `welcome back to illuminight, ${user.username}` : 'welcome to illuminight'}</h1>
+        <h1>{user.id ? `Welcome back to illuminight, ${user.username}` : 'Welcome to illuminight'}</h1>
         {user.id ? (
           <Link to="/game">
             <button>Start Game</button>

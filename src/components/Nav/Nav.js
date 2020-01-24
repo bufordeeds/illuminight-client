@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const Nav = ({ user }) => {
+export const Nav = ({ user, setUser }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -41,11 +41,9 @@ export const Nav = ({ user }) => {
               <span color="inherit">Leaderboard</span>
             </Link>
             {user.id ? (
-              <Link>
-                <span id={"nav__signin-link"} className={"nav__link"}>
-                  <span color="inherit">Logout</span>
-                </span>
-              </Link>
+              <span id={"nav__signin-link"} className={"nav__link"} onClick={() => setUser({})}>
+                <span color="inherit" style={{cursor: 'pointer'}}>Logout</span>
+              </span>
             ) : (
               <Link
                 id={"nav__signin-link"}

@@ -30,7 +30,7 @@ function App() {
 	return (
     <div className={"App"}>
       <Router>
-        <Nav user={user} />
+        <Nav user={user} setUser={setUser}/>
         <Switch>
           <Route exact path="/">
             <Home user={user} changeGrid={changeGrid} />
