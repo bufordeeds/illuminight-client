@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import { TilesContainer } from '../../containers/Tiles';
 import './game.css';
 
@@ -27,7 +27,7 @@ export class Game extends Component {
 
 	playAgain = () => {
 		let allDark = [...Array(5)].map((a) => [...Array(5)].map((n) => 0));
-		console.log(allDark);
+		// console.log(allDark);
 		this.setState({
 			clicks: 0,
 			gameComplete: false,
@@ -51,12 +51,12 @@ export class Game extends Component {
 					time={this.props.time}
 					litEhStateArr={this.state.litEhStateArr}
 				/>
-				<Button onClick={this.playAgain}>Play Again</Button>
 				<span className={'clicks'}>Clicks: {this.state.clicks} </span>
 				<span className={'timer'}>
 					Timer:
 					{` ${this.props.time} s`}
 				</span>
+				<button onClick={this.playAgain}>Play Again</button>
 			</div>
 		);
 	}

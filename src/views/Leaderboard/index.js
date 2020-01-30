@@ -77,7 +77,7 @@ export default function StickyHeadTable() {
 			return a.score - b.score;
 		});
 		games.forEach((game, index) => (game.rank = index + 1));
-		console.log(games);
+		// console.log(games);
 		setRows(games);
 	};
 

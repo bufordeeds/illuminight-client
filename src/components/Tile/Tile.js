@@ -2,7 +2,7 @@ import React from 'react';
 import './tile.css';
 
 export const Tile = ({ id, litEh, toggleLit }) => {
-	console.log(litEh);
+
 	return (
 		<div
 			id={id}

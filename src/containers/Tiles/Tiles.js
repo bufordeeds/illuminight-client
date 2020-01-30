@@ -61,9 +61,10 @@ export class TilesContainer extends React.Component {
 			body: JSON.stringify({ game: gameObject })
 		};
 
-		fetch('http://localhost:3000/api/v1/games', fetchOptions);
-	};
-
+    fetch('http://localhost:3000/api/v1/games', fetchOptions);
+    
+    alert(`You won!. Your score is ${score}. Check the leaderboard for your rank!`);
+	}
 	toggleLit = (tileId) => {
 		const rowNum = +tileId.split('')[0];
 		const colNum = +tileId.split('')[1];
@@ -100,14 +101,15 @@ export class TilesContainer extends React.Component {
 		let countLit = this.props.litEhStateArr.flat().filter((x) => x === true)
 			.length;
 
-		if (countLit === 11) {
-			this.gameComplete();
+		if (countLit === 24) {
+      this.gameComplete();
+
 		}
 	};
 
 	componentDidMount() {
 		this._isMounted = true;
-		const { cols, rows } = this.props;
+		// const { cols, rows } = this.props;
 		// this.buildStateArr(cols, rows);
 	}
 
